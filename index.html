@@ -7,27 +7,75 @@
     <script src="https://unpkg.com/@tensorflow-models/mobilenet"></script>
     <script src="https://unpkg.com/@tensorflow-models/knn-classifier"></script>
     <script type="text/javascript" src="index.js"></script>
-    <title></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <title>Drawing Classification</title>
   </head>
   <body onload="InitThis();">
-    <div id="console" align="right">
 
+    <div id="button-container" class="container-fluid text-center">
+      <div class="row" align="center">
+
+          <div >
+            <button onclick="javascript:clearArea();return false;">Clear Area</button>
+            <button id="addClasses" onclick="javascript:addClasses();return false;">Add Following</button>
+            Line width : <select id="selWidth">
+                  <option value="1">1</option>
+                  <option value="3">3</option>
+                  <option value="5">5</option>
+                  <option value="7">7</option>
+                  <option value="9" selected="selected">9</option>
+                  <option value="11">11</option>
+              </select>
+              Color : <select id="selColor">
+                  <option value="black" selected="selected">black</option>
+                  <option value="blue" >blue</option>
+                  <option value="red">red</option>
+                  <option value="green">green</option>
+                  <option value="yellow">yellow</option>
+                  <option value="gray">gray</option>
+              </select>
+          </div>
+      </div>
     </div>
-    <div align="left">
-      <button onclick="javascript:clearArea();return false;">Clear Area</button>
-      <button onclick="javascript:addClasses();return false;">Add Following</button>
-      <br /><br />
-      <canvas class="myCanvas" id="1" width="200" height="200" style="border:2px solid black"></canvas>
-      <br />
-      <canvas class="myCanvas" id="2" width="200" height="200" style="border:2px solid black"></canvas>
-      <br />
-      <canvas class="myCanvas" id="3" width="200" height="200" style="border:2px solid black"></canvas>
-      <br />
+    <br /><br />
+    <div id="input-container" class="container-fluid text-center">
+      <div class="row">
+        <div class="row slideanim">
+          <div class="col-sm-4">
+            <canvas class="myCanvas" id="1" width="200" height="200" style="border:2px solid black"></canvas>
 
-      <div id="text">
-        <button onclick="javascript:predictClass();return false;">Predict Class</button>
-        <button onclick="javascript:clearAreaTest();return false;">Clear Test Area</button>
+          </div>
+          <div class="col-sm-4">
+            <canvas class="myCanvas" id="2" width="200" height="200" style="border:2px solid black"></canvas>
+
+          </div>
+          <div class="col-sm-4">
+            <canvas class="myCanvas" id="3" width="200" height="200" style="border:2px solid black"></canvas>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <br /><br />
+    <div id="console-container" class="container-fluid text-center">
+      <div class="row" align="center">
+
+          <div id="console">
+
+          </div>
+
+      </div>
+    </div>
+    <br /><br />
+    <div id="test-container" class="container-fluid text-center">
+      <div class="row" align="center">
         <canvas class="myCanvas" id="4" width="200" height="200" style="border:2px solid black"></canvas>
+        <br>
+        <div >
+            <button onclick="javascript:predictClass();return false;">Predict Class</button>
+            <button onclick="javascript:clearAreaTest();return false;">Clear Test Area</button>
+        </div>
       </div>
     </div>
   </body>
